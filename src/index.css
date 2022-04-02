@@ -7,7 +7,79 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #222; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333; 
+}
+
+input, textarea, select {
+  padding: 20px 12px;
+  border: 0;
+  background-color: ghostwhite;
+  border-bottom: 2px solid rgb(25, 118, 210);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+.container {
+  min-width: 550px;
+  padding-top: 100px;
+}
+
+.page-root {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    min-width: 100%;
+  }
+  .page-root {
+    margin: auto 10px;
+  }
+}
+
+button {
+  cursor: pointer;
+  padding: 12px 16px;
+  color: #fff;
+  background-color: rgb(25, 118, 210);
+  border: none;
+  border-radius: 4px;
+}
+
+.icon-button{
+  background-color: transparent;
+  padding: 0;
+}
+
+.icon-button img {
+  max-width: 1.5em;
+}
+
+.add-icon {
+  padding-right: 10px;
+  width: 1em;
+  filter: invert(1);
+}
+
+.form-root {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 60ch;
+  margin-bottom: 25px;
 }

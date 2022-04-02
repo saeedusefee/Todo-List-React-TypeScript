@@ -1,0 +1,25 @@
+.card-root {
+    display: block;
+    max-width: 60ch;
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    max-height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+    background-color: rgb(165, 210, 255);
+    padding: 30px 25px 15px;
+    top: -25px;
+    border-radius: 15px;
+}
+
+.card-header {
+    display: flex;
+    background-color: rgb(25, 118, 210);
+    padding: 15px 25px 40px;
+    color: #fff;
+    border-radius: 15px;
+}

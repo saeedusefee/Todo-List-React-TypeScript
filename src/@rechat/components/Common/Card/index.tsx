@@ -1,5 +1,6 @@
 import React from "react";
 import CardHeader from "./CardHeader";
+import "./index.css"
 
 export interface CardProps {
     children?: React.ReactElement | React.ReactElement[]
