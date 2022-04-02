@@ -3,24 +3,30 @@ import React from "react";
 import "./index.css";
 
 import StatusBox from "./StatusBox";
+import { TaskStateType } from '../../../utils/constantTypes';
 
 const EditIcon = "assets/edit-svgrepo-com.svg";
 
-const Box = () => {
+const Box = ({tasks}: TaskStateType) => {
 
     const onEditTask = () => {
+
     };
 
     return (
         <React.Fragment>
-            <div className="box-root">
-                <h3>title</h3>
-                <p>description</p>
-                <div className="box-footer">
-                    <StatusBox />
-                    <button className="icon-button" onClick={() => onEditTask()}><img alt="edit" src={EditIcon} /></button>
-                </div>
-            </div>
+            {
+                tasks.map((item) => 
+                    <div key={item.id} className="box-root">
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                        <div className="box-footer">
+                            <StatusBox statusProp={item.status} />
+                            <button className="icon-button" onClick={() => onEditTask()}><img alt="edit" src={EditIcon} /></button>
+                        </div>
+                    </div>
+                )
+            }
         </React.Fragment>
     );
 };
