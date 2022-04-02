@@ -18,3 +18,8 @@ mock.onPost('/tasks').reply((request: any) => {
   return [200, newTask];
 });
 
+mock.onPut('/tasks').reply((request: any) => {
+  const { task } = JSON.parse(request.data);
+  tasksList = tasksList.map(item => (item.id === task.id ? task : item));
+  return [200, tasksList];
+});

@@ -27,3 +27,17 @@ export const addTask = async (tasks: Array<taskType>, setTasks: any, task: objec
         console.log(error);
     });
 };
+
+/* edit and update task of task list */
+export const updateTask = async (setTasks: any, task: object) => {
+    await axios.put('/tasks', { task }).then(data => {
+      if (data.status === 200) {
+          console.log(data.data)
+        setTasks(data.data);
+      } else {
+        console.log('somthing went wrong!');
+      }
+    }).catch(error => {
+        console.log(error);
+    });
+};
