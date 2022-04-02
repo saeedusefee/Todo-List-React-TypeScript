@@ -1,0 +1,13 @@
+.header-root {
+    display: flex;
+    position: fixed;
+    padding: 16px;
+    background-color: blue;
+    color: white;
+    top: 0;
+    right: 0;
+    left: 0;
+    justify-content: center;
+    z-index: 1;
+    width: 100%;
+}
