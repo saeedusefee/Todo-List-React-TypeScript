@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./index.css";
 
 import StatusBox from "./StatusBox";
 import { TaskStateType } from '../../../utils/constantTypes';
+import { TodoContext } from "../../contetxProvider/TodoContext";
 
 const EditIcon = "assets/edit-svgrepo-com.svg";
 
 const Box = ({tasks}: TaskStateType) => {
     const navigate = useNavigate();
 
-    const onEditTask = () => {
+    const { setCurrentTask }: any = useContext(TodoContext)
+
+    const onEditTask = (item: object) => {
+        setCurrentTask(item);
         navigate('/edit');
     };
 
@@ -24,7 +28,7 @@ const Box = ({tasks}: TaskStateType) => {
                         <p>{item.description}</p>
                         <div className="box-footer">
                             <StatusBox statusProp={item.status} />
-                            <button className="icon-button" onClick={() => onEditTask()}><img alt="edit" src={EditIcon} /></button>
+                            <button className="icon-button" onClick={() => onEditTask({...item})}><img alt="edit" src={EditIcon} /></button>
                         </div>
                     </div>
                 )
