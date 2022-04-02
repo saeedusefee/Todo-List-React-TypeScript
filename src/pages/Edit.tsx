@@ -60,11 +60,13 @@ const Edit = () => {
                     <input 
                         type="text" 
                         placeholder="title"
-                        value={taskTitle}/>
+                        value={taskTitle}
+                        onChange={(e) => setTaskTitle(e.target.value)}/>
                     <textarea 
                         className="edit-description" 
                         placeholder="description"
-                        value={taskDesription}/>
+                        value={taskDesription}
+                        onChange={(e) => setTaskDesription(e.target.value)}/>
                     <select
                         value={statusTask}
                         onChange={(e) => onChangeStatus(e.target.value)}>
