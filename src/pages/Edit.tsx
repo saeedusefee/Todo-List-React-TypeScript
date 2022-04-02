@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import HistoryBox from "../@rechat/components/Common/HistoryBox";
 
 import { updateTask } from "../@rechat/components/contetxProvider/TodoAction";
 import { TodoContext } from "../@rechat/components/contetxProvider/TodoContext";
@@ -9,11 +10,13 @@ import { taskType } from "../@rechat/utils/constantTypes";
 const Edit = () => {
     const navigate = useNavigate();
 
-    const { setTasks, currentTask }: any = useContext(TodoContext);
+    const { tasks, setTasks, currentTask }: any = useContext(TodoContext);
 
     const [taskTitle, setTaskTitle] = useState(currentTask?.title || '');
     const [taskDesription, setTaskDesription] = useState(currentTask?.description || '');
     const [statusTask, setStatusTask ] = useState(currentTask?.status || 'todo');
+
+    const history = currentTask?.history; // clone history of changes
 
     const onChangeStatus = (value: string) => {
         /* Only the following status transitions are allowed */
@@ -44,6 +47,7 @@ const Edit = () => {
             id: currentTask.id,
             title: taskTitle,
             description: taskDesription,
+            history: tasks.filter((item: taskType) => item.id === currentTask.id),
             status: statusTask,
         });
         // navigate to the home after editing task
@@ -56,6 +60,8 @@ const Edit = () => {
                 <h2 className="title">
                     Edite Task
                 </h2>
+                {/* history status */}
+                {history ? <HistoryBox history={history[0]}/> : null}
                 <form className="form-root">
                     <input 
                         type="text" 
