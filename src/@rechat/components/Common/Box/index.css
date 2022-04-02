@@ -1,0 +1,21 @@
+.box-root {
+    padding: 10px 15px 15px;
+    height: max-content;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 40%);
+}
+
+.box-footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-box {
+    background-color: rgb(25, 118, 210);
+    font-size: 0.75em;
+    border-radius: 4px;
+    color: #fff;
+    padding: 10px 15px;
+}
