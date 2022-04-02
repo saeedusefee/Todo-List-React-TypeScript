@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./index.css";
 
@@ -8,9 +9,10 @@ import { TaskStateType } from '../../../utils/constantTypes';
 const EditIcon = "assets/edit-svgrepo-com.svg";
 
 const Box = ({tasks}: TaskStateType) => {
+    const navigate = useNavigate();
 
     const onEditTask = () => {
-
+        navigate('/edit');
     };
 
     return (
