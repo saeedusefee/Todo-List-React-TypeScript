@@ -1,15 +1,14 @@
 import React, { useContext, useEffect } from "react";
 
-import Card from "../@rechat/components/Common/Card";
-import Box from '../@rechat/components/Common/Box';
-import AddForm from "../@rechat/components/Common/AddTask";
+import Card from "../@todolist/components/Common/Card";
+import Box from '../@todolist/components/Common/Box';
+import AddForm from "../@todolist/components/Common/AddTask";
 
-import { getTasks } from "../@rechat/components/contetxProvider/TodoAction";
-import { TodoContext } from '../@rechat/components/contetxProvider/TodoContext';
+import { getTasks } from "../@todolist/components/contetxProvider/TodoAction";
+import { TodoContext } from '../@todolist/components/contetxProvider/TodoContext';
 
 const Home = () => {
     const { tasks, setTasks }: any = useContext(TodoContext);
-
 
     useEffect(() => {
         getTasks(setTasks);

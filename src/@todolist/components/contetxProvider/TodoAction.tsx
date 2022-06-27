@@ -3,11 +3,12 @@ import axios from 'axios';
 import { taskType } from '../../utils/constantTypes'
 
 /* get task list of databae */
-export const getTasks = async (setTasks?: any) => {
+export const getTasks = async (setTasks?: any)  => {
     // if you want run test change url to https://jsonplaceholder.typicode.com/todos if you run app url equal to /tasks
     await axios.get('/tasks').then(data => { 
     if (data.status === 200) {
         setTasks(data.data);
+        return data.data;
     } else {
         console.log('somthing went wrong!');
     }

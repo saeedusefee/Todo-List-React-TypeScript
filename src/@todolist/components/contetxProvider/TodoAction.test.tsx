@@ -9,16 +9,16 @@ describe('getTodos()', () => {
     //Our desired output
     const tasks = [
       {
-        userId: 1,
-        id: 1,
-        title: 'todo-test-1',
-        completed: false,
+        "userId": 1,
+        "id": 1,
+        "title": "delectus aut autem",
+        "completed": false
       },
       {
-        userId: 2,
-        id: 2,
-        title: 'todo-test-2',
-        completed: true,
+        "userId": 1,
+        "id": 2,
+        "title": "quis ut nam facilis et officia qui",
+        "completed": false
       },
     ];
     
@@ -35,5 +35,6 @@ describe('getTodos()', () => {
     expect(axios.get).not.toHaveBeenCalled();
     const data = await getTasks();
     expect(axios.get).toHaveBeenCalled();
+    await expect(getTasks()).then.toEqual(tasks)
   });
 });

@@ -1,11 +1,18 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import HistoryBox from "../@rechat/components/Common/HistoryBox";
+import HistoryBox from "../@todolist/components/Common/HistoryBox";
 
-import { updateTask } from "../@rechat/components/contetxProvider/TodoAction";
-import { TodoContext } from "../@rechat/components/contetxProvider/TodoContext";
-import { taskType } from "../@rechat/utils/constantTypes";
+import { updateTask } from "../@todolist/components/contetxProvider/TodoAction";
+import { TodoContext } from "../@todolist/components/contetxProvider/TodoContext";
+import { taskType } from "../@todolist/utils/constantTypes";
 
+const statusTransitions: any = {
+    'todo': ['todo', 'InProgress'],
+    'InProgress': ['InProgress', 'blocked', 'InQA'],
+    'blocked': ['blocked', 'todo'],
+    'InQA': ['InQA', 'todo', 'done'],
+    'done': ['done', 'InQA'],
+}
 
 const Edit = () => {
     const navigate = useNavigate();
@@ -17,28 +24,14 @@ const Edit = () => {
     const [statusTask, setStatusTask ] = useState(currentTask?.status || 'todo');
 
     const history = currentTask?.history; // clone history of changes
+    const currentTaskStatus = currentTask?.status;
 
-    const onChangeStatus = (value: string) => {
-        /* Only the following status transitions are allowed */
-        if (currentTask?.status === 'todo' && value === 'InProgress') { 
-            // todo > InProgress
-            setStatusTask(value);
-        } else if (currentTask?.status === 'InProgress' && (value === 'blocked' || value === 'InQA')) { 
-            // blocked < InProgress > InQA
-            setStatusTask(value);
-        } else if (currentTask?.status === 'blocked' && value === 'todo') {
-            // blocked > todo
-            setStatusTask(value);
-        } else if (currentTask?.status === 'InQA' && (value === 'todo' || value === 'done')) {
-            // ToDo < InQA > done
-            setStatusTask(value);
-        } else if (currentTask?.status === 'done' && value === 'InQA') {
-            // Done > InQA ** it's just for pervent to locking status **
-            setStatusTask(value);
-        } else if (currentTask?.status === value){
-            // without change
-            setStatusTask(value);
-        }
+    const onChangeStatus = (value: string) => { 
+        const followingStatusAllowed = statusTransitions[currentTaskStatus];
+
+        followingStatusAllowed.map((item: string) => {
+            if (value === item) setStatusTask(value);
+        });
     };
 
 

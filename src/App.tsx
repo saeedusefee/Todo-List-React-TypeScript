@@ -1,7 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import AppLayout from './@rechat/components/AppLayout';
-import { TodoContextProvider } from './@rechat/components/contetxProvider/TodoContextProvider';
+import AppLayout from './@todolist/components/AppLayout';
+import { TodoContextProvider } from './@todolist/components/contetxProvider/TodoContextProvider';
 import Pages from './pages';
 
 function App() {

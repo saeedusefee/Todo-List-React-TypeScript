@@ -1,6 +1,6 @@
 import mock from '../../mockConfig';
 import { tasks } from '../../../@fake-db/todo';
-import { idGenerator } from '../../../@rechat/utils/commonHelper';
+import { idGenerator } from '../../../@todolist/utils/commonHelper';
 
 let tasksList = tasks;
 
