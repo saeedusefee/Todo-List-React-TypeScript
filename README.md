@@ -30,4 +30,9 @@ You can find all fake data in json format. So, you can use it for fake server.
 
 **APIs**
 
-I implemented some APIs for add, get and updating task to task list data. All actions such as post, get and update has provided in /tasks URL. It’s implemented in  src/@todolist/components/TodoAction.tsx address.
+I implemented some APIs for add, get and updating task to task list data. All actions such as post, get and update has provided in /tasks URL. It’s implemented in  src/@todolist/components/TodoAction.tsx address.!
+
+[home-page](https://user-images.githubusercontent.com/23361123/176033380-4ae0c2dd-aee5-4f59-b0a6-49ccb94e3067.png)
+
+[edit-page](https://user-images.githubusercontent.com/23361123/176033443-9beb2ba9-345f-448e-bd87-bdd1f33aac1d.png)
+
